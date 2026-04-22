@@ -13,445 +13,128 @@
   </style>
 </head>
 <body>
-<p class="p1">import React, { useState, useEffect, useMemo } from 'react';</p>
-<p class="p1">import {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Plus,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Search,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Calendar,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Activity,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Clipboard,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>ChevronRight,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>Milk,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>LogOut,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>ArrowLeft,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>Sparkles,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>BrainCircuit,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>Stethoscope,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>TrendingUp,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>Zap,</p>
-<p class="p1"><span class="Apple-converted-space">  </span>Trash2</p>
-<p class="p1">} from 'lucide-react';</p>
-<p class="p1">import { initializeApp } from 'firebase/app';</p>
-<p class="p1">import {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>getFirestore,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>collection,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>doc,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>onSnapshot,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>updateDoc,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>deleteDoc,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>addDoc<span class="Apple-converted-space"> </span></p>
-<p class="p1">} from 'firebase/firestore';</p>
-<p class="p1">import {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>getAuth,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>signInAnonymously,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>signInWithCustomToken,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>onAuthStateChanged<span class="Apple-converted-space"> </span></p>
-<p class="p1">} from 'firebase/auth';</p>
+<p class="p1">&lt;!DOCTYPE html&gt;</p>
+<p class="p1">&lt;html lang="es"&gt;</p>
+<p class="p1">&lt;head&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Admin Cara Blanca&lt;/title&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #f4f6f8;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #2c3e50;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>input, button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #27ae60;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>background: #219150;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">    </span>.vaca {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #ddd;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 0;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
+<p class="p1">&lt;/head&gt;</p>
+<p class="p1">&lt;body&gt;</p>
 <p class="p2"><br></p>
-<p class="p1">// --- CONFIGURACIÓN DE FIREBASE ---</p>
-<p class="p1">const firebaseConfig = JSON.parse(__firebase_config);</p>
-<p class="p1">const app = initializeApp(firebaseConfig);</p>
-<p class="p1">const auth = getAuth(app);</p>
-<p class="p1">const db = getFirestore(app);</p>
-<p class="p1">const appId = typeof __app_id !== 'undefined' ? __app_id : 'api-cara-blanca-v3';</p>
-<p class="p1">const apiKey = "";<span class="Apple-converted-space"> </span></p>
+<p class="p1">&lt;header&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;<span class="s1">🐄</span> Admin Cara Blanca&lt;/h1&gt;</p>
+<p class="p1">&lt;/header&gt;</p>
 <p class="p2"><br></p>
-<p class="p1">export default function App() {</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [user, setUser] = useState(null);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [loading, setLoading] = useState(true);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [view, setView] = useState('dashboard');<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [cows, setCows] = useState([]);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [selectedCow, setSelectedCow] = useState(null);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [searchTerm, setSearchTerm] = useState('');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [aiLoading, setAiLoading] = useState(false);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const [aiResult, setAiResult] = useState("");</p>
+<p class="p1">&lt;div class="container"&gt;</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Autenticación</p>
-<p class="p1"><span class="Apple-converted-space">  </span>useEffect(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const initAuth = async () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (typeof __initial_auth_token !== 'undefined' &amp;&amp; __initial_auth_token) {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>await signInWithCustomToken(auth, __initial_auth_token);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>await signInAnonymously(auth);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>console.error("Auth error:", error);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>};</p>
-<p class="p1"><span class="Apple-converted-space">    </span>initAuth();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const unsubscribe = onAuthStateChanged(auth, (u) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setUser(u);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setLoading(false);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Agregar vaca&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="nombre" placeholder="Nombre o número"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="date" id="fecha"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="agregarVaca()"&gt;Guardar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Listado&lt;/h2&gt;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="lista"&gt;&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;/div&gt;</p>
+<p class="p2"><br></p>
+<p class="p1">&lt;script&gt;</p>
+<p class="p1"><span class="Apple-converted-space">  </span>let vacas = JSON.parse(localStorage.getItem('vacas')) || [];</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function guardar() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>localStorage.setItem('vacas', JSON.stringify(vacas));</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function agregarVaca() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const nombre = document.getElementById('nombre').value;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const fecha = document.getElementById('fecha').value;</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>if (!nombre) {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>alert('Ponle nombre o número');</p>
+<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
+<p class="p1"><span class="Apple-converted-space">    </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>vacas.push({ nombre, fecha });</p>
+<p class="p1"><span class="Apple-converted-space">    </span>guardar();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>mostrar();</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('nombre').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('fecha').value = '';</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function eliminar(index) {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>vacas.splice(index, 1);</p>
+<p class="p1"><span class="Apple-converted-space">    </span>guardar();</p>
+<p class="p1"><span class="Apple-converted-space">    </span>mostrar();</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">  </span>function mostrar() {</p>
+<p class="p1"><span class="Apple-converted-space">    </span>const lista = document.getElementById('lista');</p>
+<p class="p1"><span class="Apple-converted-space">    </span>lista.innerHTML = '';</p>
+<p class="p2"><br></p>
+<p class="p1"><span class="Apple-converted-space">    </span>vacas.forEach((vaca, i) =&gt; {</p>
+<p class="p1"><span class="Apple-converted-space">      </span>lista.innerHTML += `</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="vaca"&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;${vaca.nombre}&lt;/strong&gt;&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>Última fecha: ${vaca.fecha || 'Sin registro'}&lt;br&gt;</p>
+<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="eliminar(${i})"&gt;Eliminar&lt;/button&gt;</p>
+<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
+<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
 <p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return () =&gt; unsubscribe();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, []);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>}</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// Escucha de Datos en tiempo real</p>
-<p class="p1"><span class="Apple-converted-space">  </span>useEffect(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!user) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const cowsRef = collection(db, 'artifacts', appId, 'public', 'data', 'cows');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const unsubCows = onSnapshot(cowsRef, (snapshot) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>const data = snapshot.docs.map(doc =&gt; ({ id: doc.id, ...doc.data() }));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setCows(data);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}, (err) =&gt; console.error("Error loading cows:", err));</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return () =&gt; unsubCows();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, [user]);</p>
+<p class="p1"><span class="Apple-converted-space">  </span>mostrar();</p>
+<p class="p1">&lt;/script&gt;</p>
 <p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// --- INTEGRACIÓN GEMINI API (Reportes Directos) ---</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const callGemini = async (prompt, systemPrompt = "Eres un consultor ganadero técnico experto en medicina bovina y reproducción.") =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setAiLoading(true);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let retries = 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const maxRetries = 5;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>while (retries &lt; maxRetries) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`, {</p>
-<p class="p1"><span class="Apple-converted-space">          </span>method: 'POST',</p>
-<p class="p1"><span class="Apple-converted-space">          </span>headers: { 'Content-Type': 'application/json' },</p>
-<p class="p1"><span class="Apple-converted-space">          </span>body: JSON.stringify({</p>
-<p class="p1"><span class="Apple-converted-space">            </span>contents: [{ parts: [{ text: prompt }] }],</p>
-<p class="p1"><span class="Apple-converted-space">            </span>systemInstruction: { parts: [{ text: systemPrompt }] }</p>
-<p class="p1"><span class="Apple-converted-space">          </span>})</p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">        </span>if (!response.ok) throw new Error('API Error');</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const result = await response.json();</p>
-<p class="p1"><span class="Apple-converted-space">        </span>const text = result.candidates?.[0]?.content?.parts?.[0]?.text;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>setAiLoading(false);</p>
-<p class="p1"><span class="Apple-converted-space">        </span>return text;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} catch (error) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>retries++;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>await new Promise(resolve =&gt; setTimeout(resolve, Math.pow(2, retries) * 1000));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setAiLoading(false);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return "No se pudo generar el análisis en este momento. Inténtelo más tarde.";</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const getSmartInsight = async (cow, insightType) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>let prompt = "";</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (insightType === 'salud') {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>prompt = `Genera un reporte veterinario conciso para la vaca #${cow.identificador}. Estado: ${cow.estado}. Analiza riesgos sanitarios basados en su estado y sugiere 3 medidas preventivas clave.`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>prompt = `Realiza un análisis reproductivo para la vaca #${cow.identificador}. Estado Reproductivo: ${cow.estadoReproduccion}. Explica qué esperar en esta etapa y qué cuidados especiales requiere para optimizar la fertilidad.`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const result = await callGemini(prompt);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setAiResult(result);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>setView('ai_report');</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// --- LÓGICA DE NEGOCIO ---</p>
-<p class="p1"><span class="Apple-converted-space">  </span>const stats = useMemo(() =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>return {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>activas: cows.filter(c =&gt; c.estado === 'activa').length,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>preñadas: cows.filter(c =&gt; c.estadoReproduccion === 'preñada').length,</p>
-<p class="p1"><span class="Apple-converted-space">      </span>secas: cows.filter(c =&gt; c.estado === 'seca').length,</p>
-<p class="p1"><span class="Apple-converted-space">    </span>};</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}, [cows]);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const saveCow = async (cowData) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!user) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const { id, ...payload } = cowData;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>// Limpieza de campos undefined para evitar errores de Firebase</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const cleanPayload = Object.fromEntries(</p>
-<p class="p1"><span class="Apple-converted-space">      </span>Object.entries(payload).filter(([_, v]) =&gt; v !== undefined)</p>
-<p class="p1"><span class="Apple-converted-space">    </span>);</p>
-<p class="p2"><span class="Apple-converted-space">    </span></p>
-<p class="p1"><span class="Apple-converted-space">    </span>const cowsRef = collection(db, 'artifacts', appId, 'public', 'data', 'cows');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>if (id) {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>await updateDoc(doc(cowsRef, id), cleanPayload);</p>
-<p class="p1"><span class="Apple-converted-space">      </span>} else {</p>
-<p class="p1"><span class="Apple-converted-space">        </span>await addDoc(cowsRef, {<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>...cleanPayload,<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>historialTratamientos: [],</p>
-<p class="p1"><span class="Apple-converted-space">          </span>fechaCreacion: new Date().toISOString()<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>});</p>
-<p class="p1"><span class="Apple-converted-space">      </span>}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setView('list');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} catch (e) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>console.error("Error saving cow:", e);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const deleteCow = async (id) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!user || !id) return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>try {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'cows', id));</p>
-<p class="p1"><span class="Apple-converted-space">      </span>setView('list');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>} catch (e) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>console.error("Error deleting cow:", e);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>// --- COMPONENTES DE VISTA ---</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const Dashboard = () =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="p-6 pb-32 animate-in fade-in duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;header className="mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-blue-600 font-bold text-xs uppercase tracking-widest"&gt;Sistema Ganadero&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h1 className="text-4xl font-black text-slate-800 tracking-tight leading-none"&gt;ApiCaraBlanca&lt;/h1&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="grid grid-cols-2 gap-4 mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;StatCard label="Activas" val={stats.activas} icon={&lt;Activity size={20}/&gt;} color="bg-blue-600 text-white" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;StatCard label="Gestación" val={stats.preñadas} icon={&lt;Calendar size={20}/&gt;} color="bg-emerald-600 text-white" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;StatCard label="Secas" val={stats.secas} icon={&lt;Milk size={20}/&gt;} color="bg-slate-800 text-white" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;StatCard label="Total Hato" val={cows.length} icon={&lt;Clipboard size={20}/&gt;} color="bg-slate-200 text-slate-600" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 className="font-black text-slate-800 text-lg ml-2"&gt;Acciones Rápidas&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>onClick={() =&gt; {setSelectedCow(null); setView('form');}}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>className="w-full bg-white border-2 border-dashed border-slate-200 p-8 rounded-[2.5rem] flex flex-col items-center justify-center gap-2 text-slate-400 font-bold active:bg-slate-50 transition-all"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="p-3 bg-slate-50 rounded-full text-slate-300"&gt;&lt;Plus size={32} /&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Registrar nuevo animal</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>onClick={() =&gt; setView('list')}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>className="w-full bg-blue-50 p-6 rounded-3xl flex items-center justify-between text-blue-700 font-bold active:scale-95 transition-all"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="flex items-center gap-3"&gt;&lt;Search size={20}/&gt; Ver lista de ganado&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;ChevronRight size={20} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const StatCard = ({ label, val, icon, color }) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className={`${color} p-6 rounded-[2.5rem] shadow-xl shadow-current/5 flex flex-col gap-3`}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="opacity-70"&gt;{icon}&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-3xl font-black leading-none"&gt;{val}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;p className="text-[10px] font-bold uppercase tracking-widest opacity-60 mt-1"&gt;{label}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const CowList = () =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="p-6 pb-32 animate-in slide-in-from-right duration-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex items-center gap-3 mb-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onClick={() =&gt; setView('dashboard')} className="p-4 bg-white rounded-2xl shadow-sm border border-slate-100"&gt;&lt;ArrowLeft size={20}/&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="relative flex-1"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;Search className="absolute left-4 top-4 text-slate-400" size={20} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;input<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>type="text"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>placeholder="Buscar por ID..."<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>className="w-full bg-white py-4 pl-12 pr-4 rounded-2xl outline-none shadow-sm border border-slate-100 font-bold text-slate-700"<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>value={searchTerm}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>onChange={(e) =&gt; setSearchTerm(e.target.value)}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>/&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="space-y-3"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>{cows.filter(c =&gt; c.identificador.includes(searchTerm)).map(cow =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>key={cow.id}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>onClick={() =&gt; {setSelectedCow(cow); setView('detail');}}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>className="bg-white p-5 rounded-[2rem] flex items-center justify-between border border-slate-50 shadow-sm active:scale-[0.98] transition-all cursor-pointer"</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="flex items-center gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center font-black text-blue-600 text-xl border border-slate-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>{cow.identificador.slice(-2)}</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;h3 className="font-black text-slate-800 text-lg"&gt;#{cow.identificador}&lt;/h3&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;div className="flex gap-2 mt-0.5"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span className={`text-[9px] px-2 py-0.5 rounded-full font-black uppercase tracking-widest ${cow.estado === 'activa' ? 'bg-green-100 text-green-700' : 'bg-slate-100 text-slate-500'}`}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{cow.estado}</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>&lt;span className="text-[9px] px-2 py-0.5 rounded-full font-black uppercase tracking-widest bg-blue-100 text-blue-700"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                    </span>{cow.estadoReproduccion}</p>
-<p class="p1"><span class="Apple-converted-space">                  </span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;ChevronRight className="text-slate-300" /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>))}</p>
-<p class="p1"><span class="Apple-converted-space">        </span>{cows.length === 0 &amp;&amp; (</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="py-20 text-center text-slate-300 font-bold"&gt;No hay animales registrados aún.&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>)}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const CowDetail = () =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="pb-32 animate-in slide-in-from-bottom duration-400"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="bg-slate-900 p-10 pt-16 text-white rounded-b-[4rem] relative overflow-hidden shadow-2xl"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onClick={() =&gt; setView('list')} className="absolute top-8 left-6 p-3 bg-white/10 rounded-xl hover:bg-white/20 transition-colors"&gt;&lt;ArrowLeft size={20}/&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="flex flex-col items-center"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="w-28 h-28 bg-white/10 rounded-[3rem] flex items-center justify-center text-5xl font-black mb-6 backdrop-blur-md border border-white/20"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{selectedCow.identificador.slice(-2)}</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 className="text-4xl font-black tracking-tight"&gt;#{selectedCow.identificador}&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;p className="opacity-40 font-bold uppercase text-[10px] tracking-[0.3em] mt-2"&gt;{selectedCow.nombre || 'Vaca sin nombre'}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="p-6 space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="grid grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>onClick={() =&gt; getSmartInsight(selectedCow, 'salud')}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>className="bg-white p-6 rounded-[2.5rem] shadow-md border border-slate-50 flex flex-col items-center gap-3 active:bg-slate-50 transition-all group"</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="p-3 bg-red-50 text-red-500 rounded-2xl group-hover:scale-110 transition-transform"&gt;&lt;Stethoscope size={28} /&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span className="font-black text-[10px] uppercase text-slate-500 tracking-wider"&gt;Reporte Salud <span class="s1">✨</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>onClick={() =&gt; getSmartInsight(selectedCow, 'repro')}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>className="bg-white p-6 rounded-[2.5rem] shadow-md border border-slate-50 flex flex-col items-center gap-3 active:bg-slate-50 transition-all group"</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="p-3 bg-indigo-50 text-indigo-500 rounded-2xl group-hover:scale-110 transition-transform"&gt;&lt;TrendingUp size={28} /&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;span className="font-black text-[10px] uppercase text-slate-500 tracking-wider"&gt;Análisis Repro <span class="s1">✨</span>&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="bg-white p-8 rounded-[3rem] shadow-sm border border-slate-100 grid grid-cols-2 gap-y-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;InfoBox label="Estado Vital" val={selectedCow.estado} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;InfoBox label="Fertilidad" val={selectedCow.estadoReproduccion} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;InfoBox label="Raza Sugerida" val={selectedCow.raza || 'Holando'} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;InfoBox label="Registro" val={new Date().toLocaleDateString()} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="flex gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onClick={() =&gt; setView('form')} className="flex-1 bg-slate-800 text-white py-5 rounded-3xl font-black text-sm active:scale-95 transition-all"&gt;Editar Ficha&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onClick={() =&gt; { if(confirm('¿Eliminar registro?')) deleteCow(selectedCow.id); }} className="p-5 bg-red-50 text-red-500 rounded-3xl active:scale-95 transition-all"&gt;&lt;Trash2 /&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const InfoBox = ({ label, val }) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p className="text-[10px] font-bold text-slate-300 uppercase tracking-widest mb-1"&gt;{label}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p className="font-black text-slate-700 text-sm uppercase"&gt;{val}&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const CowForm = () =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const [idF, setIdF] = useState(selectedCow?.identificador || '');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const [nm, setNm] = useState(selectedCow?.nombre || '');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const [st, setSt] = useState(selectedCow?.estado || 'activa');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const [rp, setRp] = useState(selectedCow?.estadoReproduccion || 'vacía');</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>return (</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="p-8 pb-32 animate-in fade-in duration-500"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="flex items-center gap-4 mb-10"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onClick={() =&gt; setView(selectedCow ? 'detail' : 'dashboard')} className="p-3 bg-slate-100 rounded-2xl"&gt;&lt;ArrowLeft size={20}/&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;h2 className="text-3xl font-black text-slate-800"&gt;{selectedCow ? 'Actualizar' : 'Registro'}&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="space-y-6"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label className="text-xs font-black uppercase text-slate-400 ml-4 tracking-widest"&gt;ID de Orejera&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input className="w-full p-6 rounded-[2.5rem] bg-white border-2 border-slate-100 outline-none font-black text-3xl text-blue-600 shadow-inner focus:border-blue-300 transition-all" placeholder="0000" value={idF} onChange={e =&gt; setIdF(e.target.value)} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;label className="text-xs font-black uppercase text-slate-400 ml-4 tracking-widest"&gt;Nombre&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;input className="w-full p-6 rounded-[2.5rem] bg-white border-2 border-slate-100 outline-none font-bold text-slate-700 shadow-inner" placeholder="Ej. Muñeca" value={nm} onChange={e =&gt; setNm(e.target.value)} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="grid grid-cols-2 gap-4"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;label className="text-xs font-black uppercase text-slate-400 ml-4 tracking-widest"&gt;Estado&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;select className="w-full p-6 rounded-[2rem] bg-white border-2 border-slate-100 outline-none font-bold appearance-none text-slate-700" value={st} onChange={e =&gt; setSt(e.target.value)}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="activa"&gt;Activa&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="seca"&gt;Seca&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="enferma"&gt;Enferma&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="space-y-2"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;label className="text-xs font-black uppercase text-slate-400 ml-4 tracking-widest"&gt;Reproducción&lt;/label&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;select className="w-full p-6 rounded-[2rem] bg-white border-2 border-slate-100 outline-none font-bold appearance-none text-slate-700" value={rp} onChange={e =&gt; setRp(e.target.value)}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="vacía"&gt;Vacía&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="inseminada"&gt;Inseminada&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">                </span>&lt;option value="preñada"&gt;Preñada&lt;/option&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>&lt;/select&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>onClick={() =&gt; saveCow({ id: selectedCow?.id, identificador: idF, nombre: nm, estado: st, estadoReproduccion: rp })}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">            </span>className="w-full bg-blue-600 text-white py-6 rounded-[2.5rem] font-black text-xl shadow-2xl shadow-blue-100 active:scale-95 transition-all mt-8"</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>{selectedCow ? 'Confirmar cambios' : 'Guardar en el hato'}</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>);</p>
-<p class="p1"><span class="Apple-converted-space">  </span>};</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>const AIReportView = () =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="p-6 pb-32 bg-slate-50 min-h-screen"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="flex items-center gap-4 mb-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button onClick={() =&gt; setView('detail')} className="bg-white p-4 rounded-3xl shadow-sm border border-slate-100"&gt;&lt;ArrowLeft size={20}/&gt;&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;h2 className="text-xl font-black text-slate-800"&gt;Resultado del Análisis <span class="s1">✨</span>&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="bg-white rounded-[3.5rem] p-10 shadow-2xl shadow-slate-200 border border-slate-50 relative overflow-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="absolute top-0 right-0 p-8 opacity-5 text-indigo-600"&gt;&lt;BrainCircuit size={120}/&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div className="w-16 h-16 bg-indigo-600 rounded-[1.5rem] flex items-center justify-center text-white mb-8 shadow-xl shadow-indigo-100"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;Zap size={32} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>{aiLoading ? (</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="flex flex-col items-center py-24"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;div className="w-14 h-14 border-4 border-slate-100 border-t-indigo-600 rounded-full animate-spin mb-6"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p className="text-slate-400 font-black uppercase tracking-widest text-[10px] animate-pulse"&gt;Consultando a Gemini AI...&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>) : (</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;div className="prose prose-slate max-w-none"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;p className="text-slate-700 leading-relaxed font-medium text-lg whitespace-pre-wrap"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">              </span>{aiResult}</p>
-<p class="p1"><span class="Apple-converted-space">            </span>&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>)}</p>
-<p class="p2"><span class="Apple-converted-space">        </span></p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;button<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>onClick={() =&gt; setView('detail')}<span class="Apple-converted-space"> </span></p>
-<p class="p1"><span class="Apple-converted-space">          </span>className="w-full bg-slate-900 text-white py-5 rounded-3xl font-black mt-10 shadow-lg active:scale-95 transition-all"</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Cerrar reporte</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>if (loading) return (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="h-screen bg-slate-50 flex flex-col items-center justify-center font-black animate-pulse text-slate-300"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;div className="w-12 h-12 border-4 border-slate-200 border-t-blue-500 rounded-full animate-spin mb-4"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;p className="tracking-[0.2em] text-xs"&gt;SINCRONIZANDO HATO&lt;/p&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>return (</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div className="max-w-md mx-auto min-h-screen bg-slate-50 shadow-2xl relative font-sans overflow-x-hidden"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{view === 'dashboard' &amp;&amp; &lt;Dashboard /&gt;}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{view === 'list' &amp;&amp; &lt;CowList /&gt;}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{view === 'detail' &amp;&amp; &lt;CowDetail /&gt;}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{view === 'form' &amp;&amp; &lt;CowForm /&gt;}</p>
-<p class="p1"><span class="Apple-converted-space">      </span>{view === 'ai_report' &amp;&amp; &lt;AIReportView /&gt;}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;nav className="fixed bottom-0 left-0 right-0 max-w-md mx-auto bg-white/90 backdrop-blur-xl p-5 flex justify-around border-t border-slate-100 z-50 rounded-t-[2.5rem]"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;NavBtn active={view === 'dashboard'} icon={&lt;Activity/&gt;} label="Inicio" onClick={() =&gt; setView('dashboard')} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;NavBtn active={view === 'list'} icon={&lt;Search/&gt;} label="El Hato" onClick={() =&gt; setView('list')} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;NavBtn active={false} icon={&lt;LogOut/&gt;} label="Salir" onClick={() =&gt; {}} /&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>&lt;/nav&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>);</p>
-<p class="p1">}</p>
-<p class="p2"><br></p>
-<p class="p1">const NavBtn = ({ active, icon, label, onClick }) =&gt; (</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;button onClick={onClick} className={`flex flex-col items-center gap-1 transition-all ${active ? 'text-blue-600 scale-110' : 'text-slate-400'}`}&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>{icon}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;span className="text-[9px] font-black uppercase tracking-tighter"&gt;{label}&lt;/span&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/button&gt;</p>
-<p class="p1">);</p>
+<p class="p1">&lt;/body&gt;</p>
+<p class="p1">&lt;/html&gt;</p>
 </body>
 </html>
