@@ -1,123 +1,78 @@
-<!DOCTYPE html>
-<html lang="es">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>Admin Cara Blanca</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background: #f4f6f8;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background: #2c3e50;
-      color: white;
-      padding: 15px;
-      text-align: center;
-    }
-    .container {
-      padding: 20px;
-    }
-    .card {
-      background: white;
-      padding: 15px;
-      border-radius: 10px;
-      margin-bottom: 15px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    }
-    input, button {
-      padding: 10px;
-      margin: 5px 0;
-      width: 100%;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-    }
-    button {
-      background: #27ae60;
-      color: white;
-      border: none;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #219150;
-    }
-    .vaca {
-      border-bottom: 1px solid #ddd;
-      padding: 10px 0;
-    }
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="1894.6">
+  <style type="text/css">
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000}
+    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; color: #000000; -webkit-text-stroke: #000000; min-height: 14.0px}
+    span.s1 {font-kerning: none}
+    span.s2 {font: 12.0px 'Apple Color Emoji'; font-kerning: none}
   </style>
 </head>
 <body>
-
-<header>
-  <h1>🐄 Admin Cara Blanca</h1>
-</header>
-
-<div class="container">
-
-  <div class="card">
-    <h2>Agregar vaca</h2>
-    <input type="text" id="nombre" placeholder="Nombre o número">
-    <input type="date" id="fecha">
-    <button onclick="agregarVaca()">Guardar</button>
-  </div>
-
-  <div class="card">
-    <h2>Listado</h2>
-    <div id="lista"></div>
-  </div>
-
-</div>
-
-<script>
-  let vacas = JSON.parse(localStorage.getItem('vacas')) || [];
-
-  function guardar() {
-    localStorage.setItem('vacas', JSON.stringify(vacas));
-  }
-
-  function agregarVaca() {
-    const nombre = document.getElementById('nombre').value;
-    const fecha = document.getElementById('fecha').value;
-
-    if (!nombre) {
-      alert('Ponle nombre o número');
-      return;
-    }
-
-    vacas.push({ nombre, fecha });
-    guardar();
-    mostrar();
-
-    document.getElementById('nombre').value = '';
-    document.getElementById('fecha').value = '';
-  }
-
-  function eliminar(index) {
-    vacas.splice(index, 1);
-    guardar();
-    mostrar();
-  }
-
-  function mostrar() {
-    const lista = document.getElementById('lista');
-    lista.innerHTML = '';
-
-    vacas.forEach((vaca, i) => {
-      lista.innerHTML += `
-        <div class="vaca">
-          <strong>${vaca.nombre}</strong><br>
-          Última fecha: ${vaca.fecha || 'Sin registro'}<br>
-          <button onclick="eliminar(${i})">Eliminar</button>
-        </div>
-      `;
-    });
-  }
-
-  mostrar();
-</script>
-
+<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;html&gt;</span></p>
+<p class="p1"><span class="s1">&lt;head&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;title&gt;Admin Cara Blanca PRO&lt;/title&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;script type="module"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>// </span><span class="s2">🔴</span><span class="s1"> AQUÍ PEGAS TU CONFIG REAL</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const firebaseConfig = {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>apiKey: "AQUI_TU_API_KEY",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>authDomain: "AQUI",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>projectId: "AQUI",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>storageBucket: "AQUI",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>messagingSenderId: "AQUI",</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>appId: "AQUI"</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>};</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const app = initializeApp(firebaseConfig);</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const db = getFirestore(app);</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function agregarVaca() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const nombre = document.getElementById('nombre').value;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>if (!nombre) return alert("Pon nombre");</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>await addDoc(collection(db, "vacas"), {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>nombre: nombre,</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>fecha: new Date().toISOString()</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>cargar();</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>async function cargar() {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const lista = document.getElementById('lista');</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>lista.innerHTML = "";</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const querySnapshot = await getDocs(collection(db, "vacas"));</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>querySnapshot.forEach(doc =&gt; {</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>lista.innerHTML += `&lt;div&gt;${doc.data().nombre}&lt;/div&gt;`;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>});</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>}</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.agregarVaca = agregarVaca;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.onload = cargar;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/script&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;body&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h1&gt;</span><span class="s2">🐄</span><span class="s1"> Cara Blanca PRO&lt;/h1&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;input id="nombre" placeholder="Nombre vaca"&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;button onclick="agregarVaca()"&gt;Guardar&lt;/button&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;h2&gt;Listado&lt;/h2&gt;</span></p>
+<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div id="lista"&gt;&lt;/div&gt;</span></p>
+<p class="p2"><span class="s1"></span><br></p>
+<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
+<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
 </body>
 </html>
