@@ -1,140 +1,123 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="es">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="1894.6">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
-    span.s1 {font: 12.0px 'Apple Color Emoji'}
+  <meta charset="UTF-8">
+  <title>Admin Cara Blanca</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+    }
+    .card {
+      background: white;
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    input, button {
+      padding: 10px;
+      margin: 5px 0;
+      width: 100%;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background: #27ae60;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #219150;
+    }
+    .vaca {
+      border-bottom: 1px solid #ddd;
+      padding: 10px 0;
+    }
   </style>
 </head>
 <body>
-<p class="p1">&lt;!DOCTYPE html&gt;</p>
-<p class="p1">&lt;html lang="es"&gt;</p>
-<p class="p1">&lt;head&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta charset="UTF-8"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;title&gt;Admin Cara Blanca&lt;/title&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;style&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>body {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>font-family: Arial, sans-serif;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #f4f6f8;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>header {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #2c3e50;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>text-align: center;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.container {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 20px;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.card {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin-bottom: 15px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>box-shadow: 0 2px 5px rgba(0,0,0,0.1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>input, button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>margin: 5px 0;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>width: 100%;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-radius: 5px;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: 1px solid #ccc;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #27ae60;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>color: white;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border: none;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>cursor: pointer;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>button:hover {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>background: #219150;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">    </span>.vaca {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>border-bottom: 1px solid #ddd;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>padding: 10px 0;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/style&gt;</p>
-<p class="p1">&lt;/head&gt;</p>
-<p class="p1">&lt;body&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;header&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;h1&gt;<span class="s1">🐄</span> Admin Cara Blanca&lt;/h1&gt;</p>
-<p class="p1">&lt;/header&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;div class="container"&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Agregar vaca&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="text" id="nombre" placeholder="Nombre o número"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;input type="date" id="fecha"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;button onclick="agregarVaca()"&gt;Guardar&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;div class="card"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Listado&lt;/h2&gt;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>&lt;div id="lista"&gt;&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/div&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;script&gt;</p>
-<p class="p1"><span class="Apple-converted-space">  </span>let vacas = JSON.parse(localStorage.getItem('vacas')) || [];</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function guardar() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>localStorage.setItem('vacas', JSON.stringify(vacas));</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function agregarVaca() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const nombre = document.getElementById('nombre').value;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const fecha = document.getElementById('fecha').value;</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>if (!nombre) {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>alert('Ponle nombre o número');</p>
-<p class="p1"><span class="Apple-converted-space">      </span>return;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>vacas.push({ nombre, fecha });</p>
-<p class="p1"><span class="Apple-converted-space">    </span>guardar();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>mostrar();</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('nombre').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">    </span>document.getElementById('fecha').value = '';</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function eliminar(index) {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>vacas.splice(index, 1);</p>
-<p class="p1"><span class="Apple-converted-space">    </span>guardar();</p>
-<p class="p1"><span class="Apple-converted-space">    </span>mostrar();</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>function mostrar() {</p>
-<p class="p1"><span class="Apple-converted-space">    </span>const lista = document.getElementById('lista');</p>
-<p class="p1"><span class="Apple-converted-space">    </span>lista.innerHTML = '';</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">    </span>vacas.forEach((vaca, i) =&gt; {</p>
-<p class="p1"><span class="Apple-converted-space">      </span>lista.innerHTML += `</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;div class="vaca"&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;strong&gt;${vaca.nombre}&lt;/strong&gt;&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>Última fecha: ${vaca.fecha || 'Sin registro'}&lt;br&gt;</p>
-<p class="p1"><span class="Apple-converted-space">          </span>&lt;button onclick="eliminar(${i})"&gt;Eliminar&lt;/button&gt;</p>
-<p class="p1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><span class="Apple-converted-space">      </span>`;</p>
-<p class="p1"><span class="Apple-converted-space">    </span>});</p>
-<p class="p1"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2"><br></p>
-<p class="p1"><span class="Apple-converted-space">  </span>mostrar();</p>
-<p class="p1">&lt;/script&gt;</p>
-<p class="p2"><br></p>
-<p class="p1">&lt;/body&gt;</p>
-<p class="p1">&lt;/html&gt;</p>
+
+<header>
+  <h1>🐄 Admin Cara Blanca</h1>
+</header>
+
+<div class="container">
+
+  <div class="card">
+    <h2>Agregar vaca</h2>
+    <input type="text" id="nombre" placeholder="Nombre o número">
+    <input type="date" id="fecha">
+    <button onclick="agregarVaca()">Guardar</button>
+  </div>
+
+  <div class="card">
+    <h2>Listado</h2>
+    <div id="lista"></div>
+  </div>
+
+</div>
+
+<script>
+  let vacas = JSON.parse(localStorage.getItem('vacas')) || [];
+
+  function guardar() {
+    localStorage.setItem('vacas', JSON.stringify(vacas));
+  }
+
+  function agregarVaca() {
+    const nombre = document.getElementById('nombre').value;
+    const fecha = document.getElementById('fecha').value;
+
+    if (!nombre) {
+      alert('Ponle nombre o número');
+      return;
+    }
+
+    vacas.push({ nombre, fecha });
+    guardar();
+    mostrar();
+
+    document.getElementById('nombre').value = '';
+    document.getElementById('fecha').value = '';
+  }
+
+  function eliminar(index) {
+    vacas.splice(index, 1);
+    guardar();
+    mostrar();
+  }
+
+  function mostrar() {
+    const lista = document.getElementById('lista');
+    lista.innerHTML = '';
+
+    vacas.forEach((vaca, i) => {
+      lista.innerHTML += `
+        <div class="vaca">
+          <strong>${vaca.nombre}</strong><br>
+          Última fecha: ${vaca.fecha || 'Sin registro'}<br>
+          <button onclick="eliminar(${i})">Eliminar</button>
+        </div>
+      `;
+    });
+  }
+
+  mostrar();
+</script>
+
 </body>
 </html>
